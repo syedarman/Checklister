@@ -1,0 +1,34 @@
+<div class="checklist-container">
+    <div class="title">
+      My Checklist Name
+    </div>
+    <div class="list-container">
+      <div class="container-fluid">
+        <div class="row item-header">
+          <div class="col-7 itemm">Item Name</div>
+          <div class="col-2 itemm">Qty</div>
+          <div class="col-2 itemm">Unit</div>
+          <div class="col-1 itemm"></div>
+        </div>
+        <ng-container [formGroup]="form">
+          <ng-container formArrayName="items">
+            <ng-container *ngFor="let item of items().controls; let i = index">
+              <div class="row" [formGroupName]="i">
+                <input type="text" class="col-7 itemm" formControlName='name'/>
+                <input type="text" class="col-2 itemm" formControlName='quantity'/>
+                <input type="text" class="col-2 itemm" formControlName='unit'/>
+                <i class="fa fa-trash col-1 itemm" style="cursor:pointer" aria-hidden="true" (click)="removeItem(i)"></i>
+              </div>
+            </ng-container>          
+          </ng-container>        
+        </ng-container>
+        <div class="row addItem-btn">
+          <button class="btn btn-secondary col" (click)="addItems()">Add Item</button> 
+        </div>
+           
+      </div>
+    </div>
+    <div class="footer">
+      <button type="submit" class="btn btn-primary" (click)="saveItems()">Save list</button>
+    </div>
+  </div>

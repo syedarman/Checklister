@@ -1,0 +1,21 @@
+<div class="checklist-container">
+    <div class="title">
+        My Checklist Name
+    </div>
+    <div class="list-container">
+        <div class="container-fluid">
+            <div class="row item-header">
+                <div class="col-7 itemm">Item Name</div>
+                <div class="col-2 itemm">Qty</div>
+                <div class="col-2 itemm">Unit</div>
+                <div class="col-1 itemm"></div>
+            </div>
+            <div class="row" *ngFor="let item of listContent.items; let i = index">
+                <p class="col-7 itemm">{{item.name}}</p>
+                <p class="col-2 itemm">{{item.quantity}}</p>
+                <p class="col-2 itemm">{{item.unit}}</p>                
+                <input class="col-1 itemm" type="checkbox" value="{{item.name}}" (change)="onCheckboxClick($event)"/>
+            </div>
+        </div>
+    </div>
+</div>
